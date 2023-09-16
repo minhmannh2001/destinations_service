@@ -1,0 +1,35 @@
+swagger: "2.0"
+info:
+  description: This is the destinations service used in the Discover Quest application.
+  version: "1.0.0"
+  title: Destinations Service
+  contact:
+    email: nguyenminhmannh2001@gmail.com
+
+schemes:
+  - http
+  - https
+
+basePath: /v1
+
+paths:
+  /test:
+    get:
+      summary: Test
+      description: Test
+      operationId: test
+      security:
+        - JWT: []
+      responses:
+        200:
+          description: Successfully
+        401:
+          description: Unauthorized
+      x-swagger-router-controller: app.controllers.destinations_controller
+
+securityDefinitions:
+  JWT:
+    type: apiKey
+    name: Authorization
+    in: header
+    x-apikeyInfoFunc: helpers.utils.decode_token
